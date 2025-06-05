@@ -42,8 +42,8 @@ return {
   },
 
   {
-  "vim-scripts/loremipsum",
-  lazy = false,
+    "vim-scripts/loremipsum",
+    lazy = false,
   },
 
   --SMEAR CURSOR - ANIMAÇÃO NO CURSOR EM MOVIMENTAÇÃO
@@ -68,5 +68,14 @@ return {
     -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
     smear_insert_mode = true,
   },
-}
 
+  --CONFORM CONFIGS
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    config = function()
+      local options = require "configs.conform"
+      require("conform").setup(options)
+    end,
+  },
+}
